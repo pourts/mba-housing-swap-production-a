@@ -1,0 +1,86 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Bookmark #<%= @bookmark.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/bookmarks" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_bookmark/<%= @bookmark.id %>" class="btn btn-block btn-outline-secondary">
+          Delete bookmark
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Creator
+      </dt>
+      <dd>
+        <%= @bookmark.creator_id %>
+      </dd>
+
+      <dt>
+        Listing
+      </dt>
+      <dd>
+        <%= @bookmark.listing_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@bookmark.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@bookmark.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit bookmark
+    </h2>
+
+    <form action="/modify_bookmark/<%= @bookmark.id %>"  method="post" >
+      <div class="form-group">
+        <label for="creator_id_box">
+          Creator
+        </label>
+
+        <input type="text" id="creator_id_box" name="creator_id_from_query" class="form-control" value="<%= @bookmark.creator_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="listing_id_box">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id_box" name="listing_id_from_query" class="form-control" value="<%= @bookmark.listing_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update bookmark
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

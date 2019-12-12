@@ -1,0 +1,102 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all messages
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new message
+    </h2>
+
+    <form action="/insert_message" method="post">
+      <div class="form-group">
+        <label for="conversation_id_box">
+          Conversation
+        </label>
+
+        <input type="text" id="conversation_id_box" name="conversation_id_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="author_id_box">
+          Author
+        </label>
+
+        <input type="text" id="author_id_box" name="author_id_from_query" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create message
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Conversation
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @messages.each do |message| %>
+      <tr>
+        <td>
+          <%= message.id %>
+        </td>
+
+        <td>
+          <%= message.conversation_id %>
+        </td>
+
+        <td>
+          <%= message.author_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(message.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(message.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/messages/<%= message.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

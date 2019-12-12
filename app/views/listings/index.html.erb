@@ -1,0 +1,165 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All Listings
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Metro area
+        </th>
+
+        <th>
+          Start date
+        </th>
+
+        <th>
+          End date
+        </th>
+
+        <th>
+          Owner Email
+        </th>
+
+        <th>
+          Available
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Beds
+        </th>
+
+        <th>
+          Baths
+        </th>
+
+        <th>
+          Private bath
+        </th>
+
+        <th>
+          Floor Number
+        </th>
+
+        <th>
+          Elevator
+        </th>
+
+        <th>
+          Laundry
+        </th>
+
+        <th>
+          Rent
+        </th>
+
+        <th>
+          Gender preference
+        </th>
+
+        <th>
+          Pets
+        </th>
+
+        <th>
+          Roomate
+        </th>
+        
+      </tr>
+
+      <% @listings.each do |listing| %>
+      <tr>
+        <td>
+          <%= listing.id %>
+        </td>
+
+        <td>
+          <%= listing.metro_area %>
+        </td>
+
+        <td>
+          <%= listing.start_date %>
+        </td>
+
+        <td>
+          <%= listing.end_date %>
+        </td>
+
+        <td>
+          <%= listing.owner_id %>
+        </td>
+
+        <td>
+          <%= listing.available %>
+        </td>
+
+        <td>
+          <%= listing.address %>
+        </td>
+
+        <td>
+          <%= listing.beds %>
+        </td>
+
+        <td>
+          <%= listing.baths %>
+        </td>
+
+        <td>
+          <%= listing.private_bath %>
+        </td>
+
+        <td>
+          <%= listing.floor %>
+        </td>
+
+        <td>
+          <%= listing.elevator %>
+        </td>
+
+        <td>
+          <%= listing.laundry %>
+        </td>
+
+        <td>
+          <%= listing.rent %>
+        </td>
+
+        <td>
+          <%= listing.gender_preference %>
+        </td>
+
+        <td>
+          <%= listing.pets %>
+        </td>
+
+        <td>
+          <%= listing.roomate %>
+        </td>
+
+        <td>
+          <a href="/listings/<%= listing.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

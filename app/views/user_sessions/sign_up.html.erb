@@ -1,0 +1,48 @@
+<h1>Sign up</h1>
+
+<form action="/post_user" method="post">
+
+  <div>
+    <label for="email_box">Email</label>
+    <input id="email_box" name="email_from_query" placeholder="Use a .edu email" type="text">
+  </div>
+     
+  
+  <div>
+    <label for="fname_box">First Name</label>
+    <input id="fname_box" name="fname_from_query" type="text">
+  </div>
+
+  <div>
+    <label for="lname_box">Last Name</label>
+    <input id="lname_box" name="lname_from_query" type="text">
+  </div>
+
+  <div>
+    <label for="gender_box">Gender</label><br>
+      
+    <input type="radio" id="gender_box" name="gender_from_query"  value="female">Female<br>
+    <input type="radio" id="gender_box" name="gender_from_query"  value="male">Male<br>
+    <input type="radio" id="gender_box" name="gender_from_query"  value="neither">Neither<br>
+  </div>
+    
+  <div>
+    <label for="password_box">Password</label>
+    <input id="password_box" name="password_from_query" placeholder="Choose a password..." type="password">
+  </div>
+
+  <div>
+    <label for="password_confirmation_box">Password Confirmation</label>
+    <input id="password_confirmation_box" name="password_confirmation_from_query" placeholder="Confirm your password..." type="password">
+  </div>
+
+  <button>
+    Sign up
+  </button>
+</form>
+
+<hr>
+
+<p>
+  Or, <a href="/user_sign_in">Sign in</a> instead.
+</p>

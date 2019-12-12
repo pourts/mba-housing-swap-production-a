@@ -1,0 +1,116 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Request #<%= @request.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/requests" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_request/<%= @request.id %>" class="btn btn-block btn-outline-secondary">
+          Delete request
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Requester
+      </dt>
+      <dd>
+        <%= @request.requester_id %>
+      </dd>
+
+      <dt>
+        Metro area
+      </dt>
+      <dd>
+        <%= @request.metro_area %>
+      </dd>
+
+      <dt>
+        Start date
+      </dt>
+      <dd>
+        <%= @request.start_date %>
+      </dd>
+
+      <dt>
+        End date
+      </dt>
+      <dd>
+        <%= @request.end_date %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@request.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@request.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit request
+    </h2>
+
+    <form action="/modify_request/<%= @request.id %>"  method="post" >
+      <div class="form-group">
+        <label for="requester_id_box">
+          Requester
+        </label>
+
+        <input type="text" id="requester_id_box" name="requester_id_from_query" class="form-control" value="<%= @request.requester_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="metro_area_box">
+          Metro area
+        </label>
+
+        <input type="text" id="metro_area_box" name="metro_area_from_query" class="form-control" value="<%= @request.metro_area %>">
+      </div>
+
+      <div class="form-group">
+        <label for="start_date_box">
+          Start date
+        </label>
+
+        <input type="date" id="start_date_box" name="start_date_from_query" class="form-control" value="<%= @request.start_date %>">
+      </div>
+
+      <div class="form-group">
+        <label for="end_date_box">
+          End date
+        </label>
+
+        <input type="date" id="end_date_box" name="end_date_from_query" class="form-control" value="<%= @request.end_date %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update request
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

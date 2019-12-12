@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      MBA Internship Housing Swap
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-nav-links" aria-controls="collapsible-nav-links" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <% if @current_user.present? == true %>
+      <div class="collapse navbar-collapse" id="collapsible-nav-links">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Resources
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="/edit_user" class="dropdown-item">
+                Edit My Profile
+              </a>          
+              <a href="/bookmarks" class="dropdown-item">
+                My Bookmarks
+              </a>
+              <a href="/requests" class="dropdown-item">
+                All Requests
+              </a>
+              <a href="/listings" class="dropdown-item">
+                All Listings
+              </a>
+                          
+                <% if @current_user.listing.present? == true %>
+                  <a href="/listings/<%= Listing.where({ :owner_id => session[:user_id] }).at(0).id %>" class="dropdown-item">
+                    View or Edit My Listing  
+                  </a>
+                <% else %>
+                  <a href="/create_listing" class="dropdown-item">
+                    Create My Listing  
+                <% end %>
+                         
+              <a href="/user_sign_out" class="dropdown-item">
+                Sign Out
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div> <!-- .navbar-collapse -->
+    <% end %>
+
+  </div> <!-- .container -->
+</nav>

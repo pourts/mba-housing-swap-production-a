@@ -1,0 +1,78 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      Your conversations
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Listing
+        </th>
+
+        <th>
+          Requester
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @conversations.where({ :requester_id => @current_user.id }).each do |conversation| %>
+      <tr>
+        <td>
+          <%= conversation.id %>
+        </td>
+
+        <td>
+          <%= conversation.listing_id %>
+        </td>
+
+        <td>
+          <%= conversation.requester_id %>
+        </td>
+
+        <td>
+          <%= conversation.owner_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(conversation.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(conversation.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/conversations/<%= conversation.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

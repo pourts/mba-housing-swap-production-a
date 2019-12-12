@@ -1,0 +1,52 @@
+<div >
+  <h5>
+    Edit User Account
+  </h5>
+
+  <% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+  <% end %>
+  <div>
+    <form action="/patch_user" method="post">
+      <div>
+        <label for="fname_box">First Name</label>
+        <input id="fname_box" name="fname_from_query" type="text" value="<%= @current_user.fname %>">
+      </div>
+
+      <div>
+        <label for="lname_box">Last Name</label>
+        <input id="lname_box" name="lname_from_query" type="text" value="<%= @current_user.lname %>">
+      </div>
+        
+      <div>
+        <label for="email_box">Email</label>
+        <input id="email_box" name="email_from_query" value="<%= @current_user.email %>">
+      </div>
+      <div>
+        <label for="gender_box">Gender</label><br>
+          
+        <input type="radio" id="gender_box" name="gender_from_query"  value="female">Female<br>
+        <input type="radio" id="gender_box" name="gender_from_query"  value="male">Male<br>
+        <input type="radio" id="gender_box" name="gender_from_query"  value="neither">Neither<br>
+      </div>
+
+      <div>
+        <label for="password_box">Password</label>
+        <input id="password_box" name="password_from_query" placeholder="Update password..." type="password">
+      </div>
+    
+      <div>
+        <label for="password_confirmation_box">Password Confirmation</label>
+        <input id="password_confirmation_box" name="password_confirmation_from_query" placeholder="Confirm password..." type="password">
+      </div>
+
+      <button>
+        Update account
+      </button>
+    </form>
+  </div>
+</div>

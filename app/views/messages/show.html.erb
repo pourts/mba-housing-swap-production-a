@@ -1,0 +1,86 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Message #<%= @message.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/messages" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_message/<%= @message.id %>" class="btn btn-block btn-outline-secondary">
+          Delete message
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Conversation
+      </dt>
+      <dd>
+        <%= @message.conversation_id %>
+      </dd>
+
+      <dt>
+        Author
+      </dt>
+      <dd>
+        <%= @message.author_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@message.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@message.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit message
+    </h2>
+
+    <form action="/modify_message/<%= @message.id %>"  method="post" >
+      <div class="form-group">
+        <label for="conversation_id_box">
+          Conversation
+        </label>
+
+        <input type="text" id="conversation_id_box" name="conversation_id_from_query" class="form-control" value="<%= @message.conversation_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="author_id_box">
+          Author
+        </label>
+
+        <input type="text" id="author_id_box" name="author_id_from_query" class="form-control" value="<%= @message.author_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update message
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Conversation #<%= @conversation.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/conversations" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_conversation/<%= @conversation.id %>" class="btn btn-block btn-outline-secondary">
+          Delete conversation
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Listing
+      </dt>
+      <dd>
+        <%= @conversation.listing_id %>
+      </dd>
+
+      <dt>
+        Requester
+      </dt>
+      <dd>
+        <%= @conversation.requester_id %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @conversation.owner_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@conversation.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@conversation.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit conversation
+    </h2>
+
+    <form action="/modify_conversation/<%= @conversation.id %>"  method="post" >
+      <div class="form-group">
+        <label for="listing_id_box">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id_box" name="listing_id_from_query" class="form-control" value="<%= @conversation.listing_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="requester_id_box">
+          Requester
+        </label>
+
+        <input type="text" id="requester_id_box" name="requester_id_from_query" class="form-control" value="<%= @conversation.requester_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="owner_id_from_query" class="form-control" value="<%= @conversation.owner_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update conversation
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,53 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      Your bookmarks
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        
+        <th>
+          Address
+        </th>
+
+        
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Detail Link
+        </th>
+       
+      </tr>
+
+      <% @bookmarks.where({ :creator_id => @current_user.id }).distinct.each do |bookmark| %>
+      <tr>
+        
+        <td>
+          <%= bookmark.listing.address %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(bookmark.created_at) %> ago
+        </td>
+        
+        <td>
+          <a href="/listings/<%= bookmark.listing_id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

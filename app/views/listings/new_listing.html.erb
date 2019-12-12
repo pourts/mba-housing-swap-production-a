@@ -1,0 +1,156 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new listing
+    </h2>
+
+    <form action="/insert_listing" method="post">
+      <div class="form-group">
+        <label for="metro_area_box">
+          Metro area
+        </label>
+
+        <select name="metro_area_from_query">
+          <option disabled selected value>-- select an option --</option>
+          <option value="Chicago">Chicago</option>
+          <option value="NewYork">New York</option>
+          <option value="SanFrancisco">San Francisco</option>
+          <option value="Boston">Boston</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="start_date_box">
+          Start date
+        </label>
+
+        <input type="date" id="start_date_box" name="start_date_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="end_date_box">
+          End date
+        </label>
+
+        <input type="date" id="end_date_box" name="end_date_from_query" class="form-control">
+      </div>
+
+        <input type="hidden" id="owner_id_box" name="owner_id_from_query" class="form-control" 
+        value="<%= @current_user.id %>">
+      
+      <div class="form-group">
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="address_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="beds_box">
+          Beds
+        </label>
+
+        <select name="beds_from_query" id="beds_box" class="form-control">
+          <option disabled selected value>-- select an option --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4+</option>
+        </select>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="baths_box">
+          Baths
+        </label>
+
+        <select name="baths_from_query" id="baths_box" class="form-control">
+          <option disabled selected value>-- select an option --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="more_than_2">3+</option>
+        </select>
+
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="private_bath_box" name="private_bath_from_query" value="1">
+
+        <label class="custom-control-label" for="private_bath_box">Private bath</label>
+      </div>
+
+      <div class="form-group">
+        <label for="floor_box">
+          Floor Number
+        </label>
+
+        <input type="number" min="1" max="200" id="floor_box" name="floor_from_query" class="form-control">
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="elevator_box" name="elevator_from_query" value="1">
+
+        <label class="custom-control-label" for="elevator_box">Elevator</label>
+      </div>
+
+      <div class="form-group">
+        <label for="laundry_box">
+          Laundry
+        </label>
+        
+        <select name="laundry_from_query" id="laundry_box"  class="form-control">
+          <option disabled selected value>-- select an option --</option>
+          <option value="in_unit">In unit</option>
+          <option value="in_building">In building</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+            
+      <div class="form-group">
+        <label for="rent_box">
+          Rent
+        </label>
+
+        <input type="number" id="rent_box" name="rent_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="gender_preference_box">
+          Gender preference
+        </label>
+
+        <select name="gender_preference_from_query" id="gender_preference_box"  class="form-control">
+          <option value="none">No Preference</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="pets_box" name="pets_from_query" value="1">
+
+        <label class="custom-control-label" for="pets_box">Pets Allowed</label>
+      </div>
+
+      <div class="form-group">
+        <label for="details_box">
+          Description
+        </label>
+
+        <input type="text" id="details_box" name="details_from_query" class="form-control" >
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="roomate_box" name="roomate_from_query" value="1">
+
+        <label class="custom-control-label" for="roomate_box">Existing Roomate</label>
+      </div>
+    
+      <button class="btn btn-block btn-outline-secondary">
+        Create listing
+      </button>
+    </form>
+  </div>
+</div>

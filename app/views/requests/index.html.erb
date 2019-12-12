@@ -1,0 +1,86 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All Requests
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Requester
+        </th>
+
+        <th>
+          Metro area
+        </th>
+
+        <th>
+          Start date
+        </th>
+
+        <th>
+          End date
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @requests.each do |request| %>
+      <tr>
+        <td>
+          <%= request.id %>
+        </td>
+
+        <td>
+          <%= request.requester_id %>
+        </td>
+
+        <td>
+          <%= request.metro_area %>
+        </td>
+
+        <td>
+          <%= request.start_date %>
+        </td>
+
+        <td>
+          <%= request.end_date %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(request.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(request.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/requests/<%= request.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
