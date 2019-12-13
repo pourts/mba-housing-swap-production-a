@@ -61,6 +61,12 @@
       </dd>
 
       <dt>
+        Owner Name
+      </dt>
+      <dd>
+        <%= @listing.owner.fname %>
+      </dd>
+      <dt>
         Available
       </dt>
       <dd>
@@ -151,19 +157,6 @@
         <%= @listing.roomate %>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@listing.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@listing.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
@@ -195,10 +188,10 @@
           </label>
 
           <select name="metro_area_from_query" id="metro_area_box">
-            <option disabled selected value>-- select an option --</option>
+            <option selected value="<%= @listing.metro_area %>"><%= @listing.metro_area %></option>
             <option value="Chicago">Chicago</option>
-            <option value="NewYork">New York</option>
-            <option value="SanFrancisco">San Francisco</option>
+            <option value="New York">New York</option>
+            <option value="San Francisco">San Francisco</option>
             <option value="Boston">Boston</option>
           </select>
         </div>
@@ -229,7 +222,8 @@
             Address
           </label>
 
-          <input type="text" id="address_box" name="address_from_query" class="form-control">
+          <input type="text" id="address_box" name="address_from_query" class="form-control"
+          value="<%= @listing.address %>">
         </div>
 
         <div class="form-group">
@@ -238,6 +232,7 @@
           </label>
 
           <select name="beds_from_query" id="beds_box" class="form-control">
+            <option selected value="<%= @listing.beds %>"><%= @listing.beds %></option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -252,11 +247,11 @@
           </label>
 
           <select name="baths_from_query" id="baths_box" class="form-control">
+            <option selected value="<%= @listing.baths %>"><%= @listing.baths %></option>
             <option value="1">1</option>
             <option value="2">2</option>
-            <option value="more_than_2">3+</option>
+            <option value="3">3+</option>
           </select>
-
         </div>
 
         <div class="custom-control custom-checkbox mb-3">
@@ -270,7 +265,8 @@
             Floor
           </label>
 
-          <input type="number" min="1" max="200" id="floor_box" name="floor_from_query" class="form-control">
+          <input type="number" min="1" max="200" id="floor_box" name="floor_from_query" class="form-control"
+          value="<%= @listing.floor %>">
         </div>
 
         <div class="custom-control custom-checkbox mb-3">
@@ -285,7 +281,7 @@
           </label>
           
           <select name="laundry_from_query" id="laundry_box"  class="form-control">
-            <option disabled selected value>-- select an option --</option>
+            <option selected value="<%= @listing.laundry %>"><%= @listing.laundry %></option>
             <option value="in_unit">In unit</option>
             <option value="in_building">In building</option>
             <option value="none">None</option>
@@ -297,7 +293,8 @@
             Rent
           </label>
 
-          <input type="number" id="rent_box" name="rent_from_query" class="form-control">
+          <input type="number" id="rent_box" name="rent_from_query" class="form-control"
+          value="<%= @listing.rent %>">
         </div>
 
         <div class="form-group">
@@ -306,6 +303,7 @@
           </label>
 
           <select name="gender_preference_from_query" id="gender_preference_box"  class="form-control">
+            <option selected value="<%= @listing.gender_preference %>"><%= @listing.gender_preference %></option>
             <option value="none">No Preference</option>
             <option value="female">Female</option>
             <option value="male">Male</option>

@@ -45,8 +45,8 @@ class UsersController < ApplicationController
     @user.password = params.fetch("password_from_query", @current_user.password)
     @user.password_confirmation = params.fetch("password_confirmation_from_query", @current_user.password)
     @user.gender = params.fetch("gender_from_query", @current_user.gender)
-    @user.fname = params.fetch("fname_from_query", @current_user.fname)
-    @user.lname = params.fetch("lname_from_query", @current_user.lname)
+    @user.fname = params.fetch("fname_from_query", @current_user.fname).capitalize
+    @user.lname = params.fetch("lname_from_query", @current_user.lname).capitalize
     if @user.valid?
       @user.save
 

@@ -76,7 +76,7 @@
             Metro area
         </label>
         <select name="metro_area_from_query" id="metro_area_box">
-            <option disabled selected value>-- select an option --</option>
+            <option selected value="<%= @request.metro_area %>"><%= @request.metro_area %></option>
             <option value="Chicago">Chicago</option>
             <option value="NewYork">New York</option>
             <option value="SanFrancisco">San Francisco</option>

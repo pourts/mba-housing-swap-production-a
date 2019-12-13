@@ -36,7 +36,7 @@ class RequestsController < ApplicationController
     @request = Request.where({ :id => the_id }).at(0)
 
     @request.requester_id = params.fetch("requester_id_from_query")
-    @request.metro_area = params.fetch("metro_area_from_query")
+    @request.metro_area = params.fetch("metro_area_from_query", @request.metro_area)
     @request.start_date = params.fetch("start_date_from_query")
     @request.end_date = params.fetch("end_date_from_query")
 
