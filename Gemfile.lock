@@ -444,7 +444,7 @@ DEPENDENCIES
   sass-rails (~> 5)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
+  sqlite3
   table_print
   tzinfo-data
   web-console (>= 3.3.0)
