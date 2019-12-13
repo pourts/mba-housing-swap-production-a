@@ -2,91 +2,61 @@
   <div class="col-md-12">
     <h1>
       All Listings
-    </h1>
+    </h1> 
+    <p1>Make Bookmarks from the "Show Details" view</p1>
   </div>
 </div>
 
-<hr>
 <div class="row mb-3">
   <div class="col-md-12">
+  <div class="tableFixHead">
     <table class="table">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th class="th-sm">
+            Metro area
+          </th>
 
-        <th>
-          Metro area
-        </th>
+          <th class="th-sm">
+            Start date
+          </th>
 
-        <th>
-          Start date
-        </th>
+          <th class="th-sm">
+            End date
+          </th>
 
-        <th>
-          End date
-        </th>
+          <th class="th-sm">
+            Owner Email
+          </th>
 
-        <th>
-          Owner Email
-        </th>
+          <th class="th-sm">
+            Available
+          </th>
 
-        <th>
-          Available
-        </th>
+          <th class="th-sm">
+            Address
+          </th>
+          <th class="th-sm">
+            Rent
+          </th>
 
-        <th>
-          Address
-        </th>
+          <th class="th-sm">
+            Gender preference
+          </th>
 
-        <th>
-          Beds
-        </th>
-
-        <th>
-          Baths
-        </th>
-
-        <th>
-          Private bath
-        </th>
-
-        <th>
-          Floor Number
-        </th>
-
-        <th>
-          Elevator
-        </th>
-
-        <th>
-          Laundry
-        </th>
-
-        <th>
-          Rent
-        </th>
-
-        <th>
-          Gender preference
-        </th>
-
-        <th>
-          Pets
-        </th>
-
-        <th>
-          Roomate
-        </th>
-        
-      </tr>
-
+          <th class="th-sm">
+            Pets Allowed?
+          </th>
+          <th class="th-sm">
+            Link
+          </th>
+        </tr>
+      </thead>
+      
+      <tbody>
       <% @listings.each do |listing| %>
       <tr>
-        <td>
-          <%= listing.id %>
-        </td>
-
+       
         <td>
           <%= listing.metro_area %>
         </td>
@@ -112,30 +82,6 @@
         </td>
 
         <td>
-          <%= listing.beds %>
-        </td>
-
-        <td>
-          <%= listing.baths %>
-        </td>
-
-        <td>
-          <%= listing.private_bath %>
-        </td>
-
-        <td>
-          <%= listing.floor %>
-        </td>
-
-        <td>
-          <%= listing.elevator %>
-        </td>
-
-        <td>
-          <%= listing.laundry %>
-        </td>
-
-        <td>
           <%= listing.rent %>
         </td>
 
@@ -144,11 +90,11 @@
         </td>
 
         <td>
-          <%= listing.pets %>
-        </td>
-
-        <td>
-          <%= listing.roomate %>
+          <% if listing.pets == true %>
+            Yes
+          <% else %>
+            No
+          <% end %>
         </td>
 
         <td>
@@ -157,8 +103,53 @@
           </a>
         </td>
       </tr>
+      </tbody>
       <% end %>
+
+      <tfoot>
+        <tr>
+          <th>
+            Metro area
+          </th>
+
+          <th>
+            Start date
+          </th>
+
+          <th>
+            End date
+          </th>
+
+          <th>
+            Owner Email
+          </th>
+
+          <th>
+            Available
+          </th>
+
+          <th>
+            Address
+          </th>
+         
+          <th>
+            Rent
+          </th>
+
+          <th>
+            Gender preference
+          </th>
+
+          <th>
+            Pets
+          </th>
+          <th>
+            Link
+          </th>
+        </tr>
+      </tfoot>
     </table>
+    </div>
   </div>
 </div>
 

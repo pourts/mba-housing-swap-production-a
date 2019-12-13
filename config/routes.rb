@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   # Routes for the Request resource:
 
   # CREATE
+  match("/new_request", { :controller => "requests", :action => "new_request_form", :via => "get"})
   match("/insert_request", { :controller => "requests", :action => "create", :via => "post"})
           
   # READ
@@ -81,7 +82,7 @@ Rails.application.routes.draw do
   # Routes for the Listing resource:
 
   # CREATE
-  match("/create_listing", { :controller => "listings", :action => "new_listing_form", :via => "get"})
+  match("/new_listing", { :controller => "listings", :action => "new_listing_form", :via => "get"})
   match("/insert_listing", { :controller => "listings", :action => "create", :via => "post"})
           
   # READ

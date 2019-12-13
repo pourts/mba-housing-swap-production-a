@@ -80,10 +80,13 @@ class ListingsController < ApplicationController
   def destroy
     the_id = params.fetch("id_from_path")
     @listing = Listing.where({ :id => the_id }).at(0)
+    if @listing.owner_id == session[:user_id]
+      @listing.destroy
 
-    @listing.destroy
-
-    redirect_to("/listings", { :notice => "Listing deleted successfully."} )
+      redirect_to("/listings", { :notice => "Listing deleted successfully."} )
+    else
+      redirect_to("/listings", { :notice => "You don't own that listing."} )
+    end 
   end
   
 end

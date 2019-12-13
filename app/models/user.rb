@@ -13,6 +13,8 @@
 #
 
 class User < ApplicationRecord
+    
+  validates_with EmailValidator
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   validates :fname, :presence => true

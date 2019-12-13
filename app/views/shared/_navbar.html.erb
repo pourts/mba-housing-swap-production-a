@@ -29,13 +29,22 @@
                 All Listings
               </a>
                           
-                <% if @current_user.listing.present? == true %>
-                  <a href="/listings/<%= Listing.where({ :owner_id => session[:user_id] }).at(0).id %>" class="dropdown-item">
-                    View or Edit My Listing  
+              <% if @current_user.listing.present? == true %>
+                <a href="/listings/<%= Listing.where({ :owner_id => session[:user_id] }).at(0).id %>" class="dropdown-item">
+                  Edit My Listing  
+                </a>
+              <% else %>
+                <a href="/new_listing" class="dropdown-item">
+                  Create My Listing  
+              <% end %>
+
+              <% if @current_user.request.present? == true %>
+                  <a href="/requests/<%= Request.where({ :requester_id => session[:user_id] }).at(0).id %>" class="dropdown-item">
+                    Edit My Request  
                   </a>
                 <% else %>
-                  <a href="/create_listing" class="dropdown-item">
-                    Create My Listing  
+                  <a href="/new_request" class="dropdown-item">
+                    Create My Request  
                 <% end %>
                          
               <a href="/user_sign_out" class="dropdown-item">

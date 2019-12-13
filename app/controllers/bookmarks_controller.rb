@@ -43,10 +43,12 @@ class BookmarksController < ApplicationController
   def destroy
     the_id = params.fetch("id_from_path")
     @bookmark = Bookmark.where({ :id => the_id }).at(0)
-
-    @bookmark.destroy
-
-    redirect_to("/bookmarks", { :notice => "Bookmark deleted successfully."} )
+    if  @bookmark.creator_id == session[:user_id]
+      @bookmark.destroy
+      redirect_to("/bookmarks", { :notice => "Bookmark deleted successfully."} )
+    else 
+      redirect_to("/bookmarks", { :notice => "You don't own that bookmark."} )
+    end
   end
 
   # def favorites

@@ -6,81 +6,68 @@
   </div>
 </div>
 
-<hr>
 <div class="row mb-3">
   <div class="col-md-12">
-    <table class="table">
-      <tr>
-        <th>
-          ID
-        </th>
+    <div class="tableFixHead">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Requester
+            </th>
+            <th>
+              Email
+            </th>
+            <th>
+              Metro area
+            </th>
 
-        <th>
-          Requester
-        </th>
+            <th>
+              Start date
+            </th>
 
-        <th>
-          Metro area
-        </th>
+            <th>
+              End date
+            </th>
 
-        <th>
-          Start date
-        </th>
+            <th>
+            Detail Link
+            </th>
+          </tr>
+        </thead>
 
-        <th>
-          End date
-        </th>
+        <tbody>
+          <% @requests.each do |request| %>
+          <tr>
+            <td>
+              <% the_user_id = request.requester_id %>
+              <%= User.where({ :id => the_user_id }).first.fname %>
+            </td>
+            <td>
+              <% the_user_id = request.requester_id %>
+              <%= User.where({ :id => the_user_id }).first.email %>
+            </td>
+            <td>
+              <%= request.metro_area %>
+            </td>
 
-        <th>
-          Created at
-        </th>
+            <td>
+              <%= request.start_date %>
+            </td>
 
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @requests.each do |request| %>
-      <tr>
-        <td>
-          <%= request.id %>
-        </td>
-
-        <td>
-          <%= request.requester_id %>
-        </td>
-
-        <td>
-          <%= request.metro_area %>
-        </td>
-
-        <td>
-          <%= request.start_date %>
-        </td>
-
-        <td>
-          <%= request.end_date %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(request.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(request.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/requests/<%= request.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+            <td>
+              <%= request.end_date %>
+            </td>
+            <td>
+              <a href="/requests/<%= request.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
 
-<hr>

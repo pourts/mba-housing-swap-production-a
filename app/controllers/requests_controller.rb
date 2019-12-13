@@ -12,6 +12,10 @@ class RequestsController < ApplicationController
     render({ :template => "requests/show.html.erb" })
   end
 
+  def new_request_form 
+    render({ :template => "requests/new_request.html.erb" })
+  end 
+
   def create
     @request = Request.new
     @request.requester_id = params.fetch("requester_id_from_query")
@@ -47,9 +51,12 @@ class RequestsController < ApplicationController
   def destroy
     the_id = params.fetch("id_from_path")
     @request = Request.where({ :id => the_id }).at(0)
+    if @request.requester_id == session[:user_id]
+      @request.destroy
 
-    @request.destroy
-
-    redirect_to("/requests", { :notice => "Request deleted successfully."} )
+      redirect_to("/requests", { :notice => "Request deleted successfully."} )
+    else 
+      redirect_to("/listings", { :notice => "You don't own that request."} )
+    end 
   end
 end

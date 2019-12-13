@@ -22,6 +22,10 @@
               <input name="listing_id_from_query" type="hidden" value="<%= @listing.id %>">
               <button>Create Bookmark</button>
             </form>
+          <% elsif @current_user.bookmarks.pluck(:listing_id).include?(@listing.id) == true %>
+            <a href="/delete_bookmark/<%= Bookmark.where({ :listing_id => @listing.id }).where({ :creator_id => @current_user.id }).first.id %>">
+              Delete this from my Bookmarks
+            </a>
           <% end %>
         <% end %>
       </div>
@@ -204,7 +208,8 @@
             Start date
           </label>
 
-          <input type="date" id="start_date_box" name="start_date_from_query" class="form-control">
+          <input type="date" id="start_date_box" name="start_date_from_query" class="form-control" 
+          value="<%= @listing.start_date %>">
         </div>
 
         <div class="form-group">
@@ -212,7 +217,8 @@
             End date
           </label>
 
-          <input type="date" id="end_date_box" name="end_date_from_query" class="form-control">
+          <input type="date" id="end_date_box" name="end_date_from_query" class="form-control"
+          value="<%= @listing.end_date %>">
         </div>
 
           <input type="hidden" id="owner_id_box" name="owner_id_from_query" class="form-control" 
@@ -279,6 +285,7 @@
           </label>
           
           <select name="laundry_from_query" id="laundry_box"  class="form-control">
+            <option disabled selected value>-- select an option --</option>
             <option value="in_unit">In unit</option>
             <option value="in_building">In building</option>
             <option value="none">None</option>

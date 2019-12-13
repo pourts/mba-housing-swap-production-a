@@ -5,9 +5,12 @@ class AccountMailer < ApplicationMailer
   #
   #   en.account_mailer.new_account_notification.subject
   #
-  def new_account_notification
-    @greeting = "Hi"
+  
+  # def new_account_notification
+  #   @greeting = "Hi"
 
-    mail to: "to@example.org"
-  end
+  #   mail to: "mstroup@chicagobooth.edu"
+  #   mail from: "pourts@gmail.com"
+  # end
+  
 end

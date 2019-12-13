@@ -11,13 +11,13 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
-        
+        <th>
+          Delete Bookmark
+        </th>
         <th>
           Address
         </th>
-
-        
-
+  
         <th>
           Created at
         </th>
@@ -28,9 +28,15 @@
        
       </tr>
 
-      <% @bookmarks.where({ :creator_id => @current_user.id }).distinct.each do |bookmark| %>
+      <% @bookmarks.where({ :creator_id => session[:user_id] }).distinct.each do |bookmark| %>
       <tr>
-        
+      
+        <td>
+          <a href="/delete_bookmark/<%= bookmark.id %>">
+            Delete Bookmark
+          </a>
+        </td>
+
         <td>
           <%= bookmark.listing.address %>
         </td>

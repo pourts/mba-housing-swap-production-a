@@ -17,7 +17,6 @@ Rails.application.configure do
 
   BetterErrors::Middleware.allow_ip! '10.138.0.0/16'
 
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -50,10 +49,29 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # ##### Do care if the mailer can't send. ###
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   :authentication => :plain
+  #   :address => "smtp.mailgun.org",
+  #   :port => 587,
+  #   :domain => ########
+  #   :user_name => "postmaster@#######"
+  #   :password=> ""
+  # }
+
+  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: 'key-94a2cb58ab86a8ff98e59d196759d33c',
+  #   domain: 'https://3000-c9c9f584-4f2c-4640-b4d4-bd0d2734decf.ws-us02.gitpod.io/',
+  # }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -77,5 +95,5 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+    
 end

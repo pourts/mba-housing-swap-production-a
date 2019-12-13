@@ -16,14 +16,14 @@ class UsersController < ApplicationController
     @user.password_confirmation = params.fetch("password_confirmation_from_query")
     @user.gender = params.fetch("gender_from_query")
 
-    @user.fname = params.fetch("fname_from_query")
-    @user.lname = params.fetch("lname_from_query")
+    @user.fname = params.fetch("fname_from_query").capitalize
+    @user.lname = params.fetch("lname_from_query").capitalize
     save_status = @user.save
 
     if save_status == true
       session.store(:user_id,  @user.id)
-   
-      redirect_to("/listings", { :notice => "User account created successfully."})
+      # AccountMailer.new_account_notification(@record).deliver
+      redirect_to("/listings", { :notice => "User account created successfully. Check email for confirmation"})
     else
       redirect_to("/user_sign_up", { :alert => "User account failed to create successfully."})
     end
