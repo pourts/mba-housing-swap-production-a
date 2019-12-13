@@ -1,3 +1,15 @@
-<a href="/user_sign_up">Sign Up</a>
-<div></div>
-<a href="/user_sign_in">Existing User Sign In</a>
+<% if session[:user_id].present? == true %>
+  <h1> Welcome to MBA Housing Swap </h1>
+  <h3> The 21st Century way to find your summer internship housing </h3>
+  <p1> Use the Resources dropdown menu above to navigate the site. </p1>
+  <div>
+    <p3> Please excuse the simplified layout, as this site is still in testing </p3>
+  </div>
+  <% else %>
+  <div>
+    <a href="/user_sign_up">Sign Up</a>
+  </div>
+  <div>
+    <a href="/user_sign_in">Existing User Sign In</a>
+  </div>
+<% end %>
